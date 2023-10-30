@@ -29,8 +29,24 @@ class TTTBoard:
      return True
 
 def has_won(self, player) -> bool:
-    return True
+    #check to see if the player has won
+    ps = [player] * 3
+    #Horizantal
+    if self.board[:3] == ps or self.board[3:6] == ps or self.board[:6]:
+        return True
+    if self.board[::3] ==ps or self.board[1::3] == ps or self.board[2::3] == ps:
+        return True
+    if self.board[::4] == ps or self.board[2:7:2] == ps:
+        return True 
 
+def game_over(self) -> bool:
+    if "*" not in self.board or self.has_won("X") or self.has_won("O"):
+        return True
+    return False
+
+def clear(self) -> None:
+    self.board = ['*'] * 9
+    
 def play_tic_tac_toe() -> None:
     """Uses your class to play TicTacToe"""
 
